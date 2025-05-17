@@ -13,7 +13,7 @@ import { ListOrdered } from "lucide-react";
 
 async function Header() {
   const user = await currentUser();
-  console.log("user", user);
+
   return (
     <header className=" border-b border-gray-400 py-5">
       <Container className="flex justify-between items-center gap-7 text-[#52525b]">
