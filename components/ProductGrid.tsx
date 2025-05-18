@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { AnimatePresence, motion } from "motion/react";
 import { productType } from "@/constants";
 
 import HomeTabbar from "./HomeTabbar";
@@ -50,11 +50,18 @@ function ProductGrid() {
       ) : (
         <>
           {products?.length ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10  w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-10  w-full">
               {products?.map((product: Product) => (
-                <div key={product?._id}>
-                  <ProductCard product={product} />
-                </div>
+                <AnimatePresence key={product?._id}>
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0.2 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                </AnimatePresence>
               ))}
             </div>
           ) : (
