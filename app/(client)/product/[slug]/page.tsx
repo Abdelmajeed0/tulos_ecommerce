@@ -1,6 +1,13 @@
 import Container from "@/components/Container";
 
-function SingleProductPage() {
+async function SingleProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  console.log(slug);
   return (
     <Container>
       <div>SingleProductPage</div>
