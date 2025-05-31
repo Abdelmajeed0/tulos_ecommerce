@@ -15,7 +15,7 @@ async function Header() {
   const user = await currentUser();
 
   return (
-    <header className=" border-b border-gray-400 py-5">
+    <header className=" border-b border-gray-400 py-5 sticky top-0 z-50 bg-white">
       <Container className="flex justify-between items-center gap-7 text-[#52525b]">
         <HeaderMenue />
         <div className="w-auto md:w-1/3 flex justify-center items-center gap-2.5">

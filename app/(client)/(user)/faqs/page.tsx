@@ -26,11 +26,11 @@ const FAQPage = () => {
               key={index}
               className="group"
             >
-              <AccordionTrigger className="text-left text-lg font-semibold text-darkColor/80 group-hover:text-darkColor hover:no-underline hoverEffect">
-                {faq.question}
+              <AccordionTrigger className="text-left text-lg font-semibold text-gray-800/80 group-hover:text-gray-[800] hover:no-underline hovereffect">
+                {faq?.question}
               </AccordionTrigger>
               <AccordionContent className="text-gray-600">
-                {faq.answer}
+                {faq?.answer}
               </AccordionContent>
             </AccordionItem>
           ))}
