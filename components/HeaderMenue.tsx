@@ -2,34 +2,35 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { headerData } from "@/constants";
+import { CATEGORIES_QUIERYResult } from "@/sanity.types";
+import UnderLineSpan from "./UnderLineSpan";
 
-function HeaderMenue() {
+function HeaderMenue({ categories }: { categories: CATEGORIES_QUIERYResult }) {
   const pathname = usePathname();
 
   return (
-    <div className="hidden md:inline-flex w-1/3 items-center gap-5 text-sm capitalize font-semibold ">
-      {headerData?.map((link) => {
+    <div className="hidden md:inline-flex w-1/3 whitespace-nowrap items-center gap-5 text-sm capitalize font-semibold ">
+      <Link
+        href={"/"}
+        className={`hover:text-[##151515] hoverEffect relative group ${
+          pathname === "/" && "text-[#52525b]"
+        }`}
+      >
+        Home
+        <UnderLineSpan path="/" />
+      </Link>
+      {categories?.map((category) => {
         return (
           <Link
+            key={category?._id}
+            href={`/category/${category?.slug?.current}`}
             className={`hover:text-[##151515] hoverEffect relative group ${
-              pathname === link?.href && "text-[#52525b]"
+              pathname === category?.slug?.current && "text-[#52525b]"
             }`}
-            key={link?.title}
-            href={link?.href}
           >
-            {link?.title}
+            {category?.title}
 
-            <span
-              className={`absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#151515] transition-all duration-300 group-hover:w-1/2 group-hover:left-0 ${
-                pathname === link?.href && "w-1/2"
-              }`}
-            />
-            <span
-              className={`absolute -bottom-0.5 right-1/2 w-0 h-0.5 bg-[#151515] transition-all duration-300 group-hover:w-1/2 group-hover:right-0 ${
-                pathname === link?.href && "w-1/2"
-              }`}
-            />
+            <UnderLineSpan path={`/category/${category?.slug?.current}`} />
           </Link>
         );
       })}

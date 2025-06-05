@@ -20,3 +20,19 @@ export const getProductBySlug = async (slug: string) => {
     console.log("Error fetching product by slug", error);
   }
 };
+
+export const getAllCategories = async () => {
+  const CATEGORIES_QUIERY = defineQuery(
+    `*[_type == 'category'] | order(name asc)`
+  );
+
+  try {
+    const categories = await sanityFetch({
+      query: CATEGORIES_QUIERY,
+    });
+    return categories?.data || [];
+  } catch (error) {
+    console.error("Failed to fetch all categories", error);
+    return [];
+  }
+};
