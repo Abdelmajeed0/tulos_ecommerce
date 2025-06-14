@@ -218,6 +218,7 @@ function CartPage() {
                         />
                       </div>
                       <Button
+                        disabled={loading}
                         onClick={handleCheckOut}
                         className="w-full rounded-full font-semibold tracking-wide hovereffect"
                         size="lg"
@@ -253,6 +254,7 @@ function CartPage() {
                         />
                       </div>
                       <Button
+                        disabled={loading}
                         onClick={handleCheckOut}
                         className="w-full rounded-full font-semibold tracking-wide hovereffect"
                         size="lg"
