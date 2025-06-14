@@ -1,9 +1,17 @@
+"use client";
+import { motion } from "motion/react";
+
 import Image from "next/image";
 import heroImage from "@/public/hero.png";
 
 function HeroSection() {
   return (
-    <section className="mb-20 md:mb-24 bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="mb-20 md:mb-24 bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"
+    >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
@@ -29,7 +37,7 @@ function HeroSection() {
           />
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 }
 

@@ -42,7 +42,6 @@ export const categoriesData = [
   { title: "Kids corner", href: "/kids" },
   { title: "Tshirt", href: "/t-shirt" },
   { title: "Accessories", href: "/accessories" },
-  { title: "Household", href: "/household" },
   { title: "Others", href: "/others" },
 ];
 

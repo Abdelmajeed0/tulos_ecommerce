@@ -23,9 +23,14 @@ import PriceFormater from "@/components/PriceFormater";
 import QuantityButtons from "@/components/QuantityButtons";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  createCheckoutSession,
+  Metadata,
+} from "@/actions/createCheckoutSession";
 
 function CartPage() {
   const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     deleteCartProduct,
     getTotalPrice,
@@ -34,7 +39,7 @@ function CartPage() {
     resetCart,
     getGroupedItems,
   } = useCartStore();
-  const user = useUser();
+  const { user } = useUser();
   const { isSignedIn } = useAuth();
   useEffect(() => {
     setIsClient(true);
@@ -61,8 +66,26 @@ function CartPage() {
     }
   };
 
-  const handleCheckOut = () => {
-    toast.success("Thanks");
+  const handleCheckOut = async () => {
+    setLoading(true);
+    try {
+      const metadata: Metadata = {
+        orderNumber: crypto.randomUUID(),
+        customerName: user?.fullName ?? "Unknown",
+        customerEmail: user?.emailAddresses[0]?.emailAddress ?? "Unknown",
+        clerkUserId: user!.id,
+      };
+
+      const checkouURL = await createCheckoutSession(cartProducts, metadata);
+
+      if (checkouURL) {
+        window.location.href = checkouURL;
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+    } finally {
+      setLoading(false);
+    }
   };
   return (
     <div className="bg-gray-50 pb-52 md:pb-10">
@@ -199,7 +222,7 @@ function CartPage() {
                         className="w-full rounded-full font-semibold tracking-wide hovereffect"
                         size="lg"
                       >
-                        Proceed to Checkout
+                        {loading ? "Proccessing..." : "Proceed to Checkout"}
                       </Button>
                     </div>
                   </div>
@@ -234,7 +257,7 @@ function CartPage() {
                         className="w-full rounded-full font-semibold tracking-wide hovereffect"
                         size="lg"
                       >
-                        Proceed to Checkout
+                        {loading ? "Proccessing..." : "Proceed to Checkout"}
                       </Button>
                     </div>
                   </div>

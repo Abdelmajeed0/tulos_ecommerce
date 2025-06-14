@@ -2,7 +2,7 @@ import { FC } from "react";
 import { motion } from "motion/react";
 import Logo from "./Logo";
 import { X } from "lucide-react";
-import { headerData } from "@/constants";
+import { categoriesData } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import SocialMedia from "./SocialMedia";
@@ -38,7 +38,16 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
           </button>
         </div>
         <div className="flex flex-col items-start gap-3.5 justify-center text-base font-semibold tracking-wide">
-          {headerData?.map((link) => {
+          <Link
+            className={`hover:text-white hovereffect ${
+              pathname === "/" && "text-white"
+            }`}
+            onClick={onClose}
+            href="/"
+          >
+            Home
+          </Link>
+          {categoriesData?.map((link) => {
             return (
               <Link
                 onClick={onClose}
@@ -46,7 +55,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
                   pathname === link?.href && "text-white"
                 }`}
                 key={link?.title}
-                href={link?.href}
+                href={`/category${link?.href}`}
               >
                 {link?.title}
               </Link>
