@@ -7,6 +7,10 @@ Follow the steps below to set up and customize the application.
 
 ## ![Dashboard Preview](/public/preview_image.png)
 
+## Live
+
+https://tulos-ecommerce-pearl.vercel.app/
+
 ## Getting started
 
 To set up the Tulos Ecommerce Application, follow these steps carefully:
