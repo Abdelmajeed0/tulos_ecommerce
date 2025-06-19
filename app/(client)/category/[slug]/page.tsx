@@ -1,3 +1,11 @@
+export const metadata = {
+  title: "Categories | Tulos",
+  description: "Different categories and styles you can see and explore",
+  alternates: {
+    canonical: "/cart",
+  },
+};
+
 import CategoryProducts from "@/components/CategoryProducts";
 import Container from "@/components/Container";
 
