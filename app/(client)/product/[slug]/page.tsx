@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { AddToCartButton } from "@/components/AddToCartButton";
 import Container from "@/components/Container";
 import ImageView from "@/components/ImageView";
@@ -7,6 +8,18 @@ import { getProductBySlug } from "@/sanity/helpers/queries";
 import { Heart } from "lucide-react";
 import { notFound } from "next/navigation";
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const slug = (await params).slug;
+
+  return {
+    title: `Product ${slug}`,
+  };
+};
 async function SingleProductPage({
   params,
 }: {
