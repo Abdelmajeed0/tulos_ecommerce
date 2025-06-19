@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "FAQs | Tulos",
+  description:
+    "Find answers to frequently asked questions about our products, services, and policies.",
+  alternates: {
+    canonical: "/faqs",
+  },
+};
+
 import {
   Accordion,
   AccordionContent,

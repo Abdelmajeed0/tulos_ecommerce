@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "Contact Us | Tulos",
+  description:
+    "Get in touch with our team. We're here to answer your questions and help with any inquiries.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
+
 import ContactUsForm from "@/components/ContactUsForm";
 
 const ContactPage = () => {

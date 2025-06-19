@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "My Orders | Tulos",
+  description:
+    "View your order history and track current orders with our easy-to-use order management system.",
+  alternates: {
+    canonical: "/account/orders",
+  },
+};
+
 import Container from "@/components/Container";
 import OrdersComponent from "@/components/OrdersComponent";
 import Title from "@/components/Title";

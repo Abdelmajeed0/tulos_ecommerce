@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "Terms and Conditions | Tulos",
+  description:
+    "Review our terms and conditions that govern the use of our website and services.",
+  alternates: {
+    canonical: "/terms-and-conditions",
+  },
+};
+
 const TermsPage = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

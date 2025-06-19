@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "Privacy Policy | Tulos",
+  description:
+    "Understand how we collect, use, and protect your personal information with our privacy policy.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+};
+
 const PrivacyPage = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

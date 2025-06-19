@@ -8,7 +8,7 @@ import { Input } from "./ui/input";
 import Link from "next/link";
 function Footer() {
   return (
-    <footer className="bg-white border-t pb-[200px]">
+    <footer className="bg-white border-t">
       <Container>
         <FooterTop />
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-b">

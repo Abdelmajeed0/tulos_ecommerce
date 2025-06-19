@@ -1,3 +1,12 @@
+export const metadata = {
+  title: "About Us | Tulos",
+  description:
+    "Learn more about our company, mission, and values that drive our business forward.",
+  alternates: {
+    canonical: "/about",
+  },
+};
+
 import Container from "@/components/Container";
 
 const AboutPage = () => {
