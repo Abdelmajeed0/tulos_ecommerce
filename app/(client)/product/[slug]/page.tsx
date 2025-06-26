@@ -5,7 +5,6 @@ import ImageView from "@/components/ImageView";
 import PriceView from "@/components/PriceView";
 import ProductCharactristics from "@/components/ProductCharactristics";
 import { getProductBySlug } from "@/sanity/helpers/queries";
-import { Heart } from "lucide-react";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -63,9 +62,6 @@ async function SingleProductPage({
             product={product}
             className="bg-[#151515]/80 w-full text-white hover:bg-[#151515] hovereffect"
           />
-          <button className="border-2 border-[#151515]/30 text-[#151515]/60 px-2.5 py-1.5 rounded-md hover:text-[#151515] hover:border-[#151515] hovereffect">
-            <Heart className="w-5 h-5" />
-          </button>
         </div>
         <ProductCharactristics product={product} />
         <div className="flex flex-wrap  gap-5 items-center">
